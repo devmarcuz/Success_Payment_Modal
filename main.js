@@ -10,13 +10,16 @@ launch.addEventListener("click", openModal);
 
 // Closes the modal when closeBtn is clicked
 function closeModal() {
+  console.log(document.querySelector("body"));
   if (container.classList.contains("rem-modal")) {
-    container.classList.remove("rem-modal");
   } else {
     container.classList.add("rem-modal");
     setTimeout(() => {
       container.style.display = "none";
     }, 500);
+    setTimeout(() => {
+      document.querySelector("body").style.overflow = "visible";
+    }, 600);
   }
 }
 
@@ -30,6 +33,9 @@ function closeModal2(e) {
       setTimeout(() => {
         container.style.display = "none";
       }, 500);
+      setTimeout(() => {
+        document.querySelector("body").style.overflow = "visible";
+      }, 600);
     }
   }
   return;
@@ -42,4 +48,5 @@ function closeModal2(e) {
 function openModal() {
   container.classList.remove("rem-modal");
   container.style.display = "flex";
+  document.querySelector("body").style.overflow = "hidden";
 }

@@ -3,12 +3,11 @@
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-body {
-  height: 100vh;
-  font-family: "Mulish", sans-serif;
+.overflow {
+  overflow: visible;
 }
 
 .payment-launch {
@@ -16,7 +15,7 @@ body {
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   background: #e9b213;
   padding: 8px;
   width: 250px;
@@ -25,6 +24,7 @@ body {
   color: white;
   font-family: inherit;
   cursor: pointer;
+  font-family: "Mulish", sans-serif;
 }
 
 .payment-container {
@@ -33,36 +33,41 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.61);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   overflow: hidden;
+  font-family: "Mulish", sans-serif;
   color: #1f2348;
 }
 
 .payment-container .payment-modal {
-  background: url("/wave.png");
   background-size: cover;
-  height: 500px;
-  width: 300px;
-  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.685);
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.685);
-  border-radius: 3px;
+  height: 250px;
+  width: 500px;
+  -webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.377);
+          box-shadow: 0 0 18px rgba(0, 0, 0, 0.377);
+  border-radius: 10px;
   -webkit-animation: 0.3s scale_modal alternate ease-in-out;
-  animation: 0.3s scale_modal alternate ease-in-out;
+          animation: 0.3s scale_modal alternate ease-in-out;
   overflow: hidden;
   position: relative;
+  background: white;
+}
+
+.payment-container .payment-modal .wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80%;
 }
 
 .payment-container .payment-modal .payment-header {
@@ -71,14 +76,14 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
 }
 
 .payment-container .payment-modal .payment-header .payment-logo {
   -webkit-transform: scale(0.4) rotate(90deg);
-  transform: scale(0.4) rotate(90deg);
+          transform: scale(0.4) rotate(90deg);
 }
 
 .payment-container .payment-modal .payment-header .payment-logo .r-hex {
@@ -88,17 +93,12 @@ body {
   width: 4.166em;
   height: 3.88em;
   -webkit-transform: rotate(-30deg) skewX(30deg);
-  transform: rotate(-30deg) skewX(30deg);
+          transform: rotate(-30deg) skewX(30deg);
   border-radius: 0.5em;
 }
 
 .payment-container .payment-modal .payment-header .payment-logo .r-hex *,
-.payment-container
-  .payment-modal
-  .payment-header
-  .payment-logo
-  .r-hex
-  *:before {
+.payment-container .payment-modal .payment-header .payment-logo .r-hex *:before {
   display: block;
   overflow: hidden;
   width: inherit;
@@ -108,34 +108,29 @@ body {
 
 .payment-container .payment-modal .payment-header .payment-logo .r-hex-inner {
   -webkit-transform: skewX(-30deg) rotate(60deg) skewX(30deg);
-  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+          transform: skewX(-30deg) rotate(60deg) skewX(30deg);
   cursor: default;
 }
 
-.payment-container
-  .payment-modal
-  .payment-header
-  .payment-logo
-  .r-hex:first-child
-  .r-hex-inner:before,
+.payment-container .payment-modal .payment-header .payment-logo .r-hex:first-child .r-hex-inner:before,
 .payment-container .payment-modal .payment-header .payment-logo .r-hex-inner-2 {
   -webkit-transform: skewX(-30deg) rotate(60deg) skewX(30deg);
-  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
-  background: -webkit-gradient(
-    linear,
-    right top,
-    left top,
-    from(#e9b213),
-    to(#ec991c)
-  );
+          transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  background: -webkit-gradient(linear, right top, left top, from(#e9b213), to(#ec991c));
   background: linear-gradient(to left, #e9b213, #ec991c);
   content: "";
 }
 
-.payment-container .payment-modal .payment-header h2 {
+.payment-container .payment-modal .payment-header h3 {
   -webkit-transform: translateX(-15px);
-  transform: translateX(-15px);
+          transform: translateX(-15px);
   cursor: default;
+}
+
+.payment-container .payment-modal .payment-header h3 span {
+  font-size: 14px;
+  color: black;
+  font-weight: 500;
 }
 
 .payment-container .payment-modal .payment-header .x-close {
@@ -143,15 +138,14 @@ body {
   right: 5%;
   top: 50%;
   -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+          transform: translateY(-50%);
   width: 32px;
   height: 19px;
   opacity: 0.3;
   cursor: pointer;
 }
 
-.payment-container .payment-modal .payment-header .x-close:before,
-.payment-container .payment-modal .payment-header .x-close:after {
+.payment-container .payment-modal .payment-header .x-close:before, .payment-container .payment-modal .payment-header .x-close:after {
   position: absolute;
   left: 15px;
   content: " ";
@@ -163,62 +157,75 @@ body {
 
 .payment-container .payment-modal .payment-header .x-close:before {
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .payment-container .payment-modal .payment-header .x-close:after {
   -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
-.payment-container .payment-modal .payment-user {
+.payment-container .payment-modal .flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding-left: 45px;
+}
+
+.payment-container .payment-modal .flex-container .payment-user {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
   cursor: default;
+  -webkit-transform: translateY(-15%);
+          transform: translateY(-15%);
 }
 
-.payment-container .payment-modal .payment-user img {
+.payment-container .payment-modal .flex-container .payment-user img {
   position: absolute;
-  left: 2%;
+  left: 6%;
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  width: 80px;
-  height: 80px;
+  width: 77px;
+  height: 77px;
   opacity: 0;
   -webkit-animation: 0.3s scale_avatar1 0.3s forwards ease-in-out;
-  animation: 0.3s scale_avatar1 0.3s forwards ease-in-out;
+          animation: 0.3s scale_avatar1 0.3s forwards ease-in-out;
 }
 
-.payment-container .payment-modal .payment-user .payment-logo1 {
+.payment-container .payment-modal .flex-container .payment-user .payment-logo1 {
   -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
+          transform: rotate(90deg);
   opacity: 0;
   -webkit-animation: 0.3s scale_avatar 0.3s forwards ease-in-out;
-  animation: 0.3s scale_avatar 0.3s forwards ease-in-out;
+          animation: 0.3s scale_avatar 0.3s forwards ease-in-out;
 }
 
-.payment-container .payment-modal .payment-user .payment-logo1 .r-hex {
+.payment-container .payment-modal .flex-container .payment-user .payment-logo1 .r-hex {
   overflow: hidden;
   display: inline-block;
   margin: 2em 0;
-  width: 9.1652em;
-  height: 8.426em;
+  width: 7.05015em;
+  height: 6.48154em;
   -webkit-transform: rotate(-30deg) skewX(30deg);
-  transform: rotate(-30deg) skewX(30deg);
+          transform: rotate(-30deg) skewX(30deg);
   border-radius: 0.7em;
 }
 
-.payment-container .payment-modal .payment-user .payment-logo1 .r-hex *,
-.payment-container .payment-modal .payment-user .payment-logo1 .r-hex *:before {
+.payment-container .payment-modal .flex-container .payment-user .payment-logo1 .r-hex *,
+.payment-container .payment-modal .flex-container .payment-user .payment-logo1 .r-hex *:before {
   display: block;
   overflow: hidden;
   width: inherit;
@@ -226,43 +233,28 @@ body {
   border-radius: inherit;
 }
 
-.payment-container .payment-modal .payment-user .payment-logo1 .r-hex-inner {
+.payment-container .payment-modal .flex-container .payment-user .payment-logo1 .r-hex-inner {
   -webkit-transform: skewX(-30deg) rotate(60deg) skewX(30deg);
-  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+          transform: skewX(-30deg) rotate(60deg) skewX(30deg);
 }
 
-.payment-container
-  .payment-modal
-  .payment-user
-  .payment-logo1
-  .r-hex:first-child
-  .r-hex-inner:before,
-.payment-container .payment-modal .payment-user .payment-logo1 .r-hex-inner-2 {
+.payment-container .payment-modal .flex-container .payment-user .payment-logo1 .r-hex:first-child .r-hex-inner:before,
+.payment-container .payment-modal .flex-container .payment-user .payment-logo1 .r-hex-inner-2 {
   -webkit-transform: skewX(-30deg) rotate(60deg) skewX(30deg);
-  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
-  background: -webkit-gradient(
-    linear,
-    right top,
-    left top,
-    from(#e9b213),
-    to(#ec991c)
-  );
+          transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  background: -webkit-gradient(linear, right top, left top, from(#e9b213), to(#ec991c));
   background: linear-gradient(to left, #e9b213, #ec991c);
   content: "";
 }
 
-.payment-container .payment-modal .payment-user .checkmark-container {
+.payment-container .payment-modal .flex-container .payment-user .checkmark-container {
   position: absolute;
-  top: 65%;
-  left: 56%;
+  top: 66%;
+  left: 65%;
   z-index: 1;
 }
 
-.payment-container
-  .payment-modal
-  .payment-user
-  .checkmark-container
-  .checkmark__circle {
+.payment-container .payment-modal .flex-container .payment-user .checkmark-container .checkmark__circle {
   stroke-dasharray: 166;
   stroke-dashoffset: 166;
   stroke-width: 2;
@@ -270,16 +262,12 @@ body {
   stroke: #7ac142;
   fill: none;
   -webkit-animation: stroke 1.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-  animation: stroke 1.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+          animation: stroke 1.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 
-.payment-container
-  .payment-modal
-  .payment-user
-  .checkmark-container
-  .checkmark {
-  width: 36px;
-  height: 36px;
+.payment-container .payment-modal .flex-container .payment-user .checkmark-container .checkmark {
+  width: 33px;
+  height: 33px;
   border-radius: 50%;
   display: block;
   stroke-width: 2;
@@ -287,103 +275,107 @@ body {
   stroke-miterlimit: 10;
   margin: 10% auto;
   -webkit-box-shadow: inset 0px 0px 0px #7ac142;
-  box-shadow: inset 0px 0px 0px #7ac142;
-  -webkit-animation: fill 0.4s ease-in-out 0.4s forwards,
-    scale 0.3s ease-in-out 0.9s both;
-  animation: fill 0.4s ease-in-out 0.4s forwards,
-    scale 0.3s ease-in-out 0.9s both;
+          box-shadow: inset 0px 0px 0px #7ac142;
+  -webkit-animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+          animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
 }
 
-.payment-container
-  .payment-modal
-  .payment-user
-  .checkmark-container
-  .checkmark__check {
+.payment-container .payment-modal .flex-container .payment-user .checkmark-container .checkmark__check {
   -webkit-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
   stroke-dasharray: 48;
   stroke-dashoffset: 48;
   -webkit-animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+          animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
 }
 
-.payment-container .payment-modal .payment-content {
+.payment-container .payment-modal .flex-container .flex-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+  height: 100%;
+}
+
+.payment-container .payment-modal .flex-container .flex-content .payment-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   opacity: 0;
   -webkit-animation: 0.3s test_fade 0.7s forwards ease-in-out;
-  animation: 0.3s test_fade 0.7s forwards ease-in-out;
+          animation: 0.3s test_fade 0.7s forwards ease-in-out;
 }
 
-.payment-container .payment-modal .payment-content h3 {
-  padding-bottom: 15px;
+.payment-container .payment-modal .flex-container .flex-content .payment-content h3 {
+  padding-bottom: 10px;
+  color: black;
+  font-weight: 550;
+  letter-spacing: 1px;
 }
 
-.payment-container .payment-modal .payment-content .payment-wallet {
+.payment-container .payment-modal .flex-container .flex-content .payment-content .payment-wallet {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 80%;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
 }
 
-.payment-container
-  .payment-modal
-  .payment-content
-  .payment-wallet
-  .payment-address {
-  font-family: "Fira Mono", monospace;
+.payment-container .payment-modal .flex-container .flex-content .payment-content .payment-wallet .payment-address {
   width: 100%;
   word-wrap: break-word;
-  text-transform: uppercase;
+  font-family: inherit;
+  line-height: 22px;
 }
 
-.payment-container .payment-modal .payment-received {
-  position: absolute;
+.payment-container .payment-modal .flex-container .flex-content .payment-received {
   z-index: 100;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#e9b213),
-    to(#ec991c)
-  );
-  background: linear-gradient(to right, #e9b213, #ec991c);
-  width: 80%;
+  background: -webkit-gradient(linear, right top, left top, from(#e9b213), to(#ec991c));
+  background: linear-gradient(to left, #e9b213, #ec991c);
+  width: 60%;
   margin: 0 auto;
   text-align: center;
-  padding: 5px;
+  padding: 8px;
   border-radius: 50px;
   color: white;
-  bottom: -100%;
+  -webkit-transform: translateY(300%);
+          transform: translateY(300%);
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
   cursor: default;
   -webkit-animation: 0.7s move 0.6s forwards ease-in-out;
-  animation: 0.7s move 0.6s forwards ease-in-out;
+          animation: 0.7s move 0.6s forwards ease-in-out;
 }
 
 .payment-container .payment-modal .confetti {
@@ -391,11 +383,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -416,157 +408,157 @@ body {
 .payment-container .payment-modal .confetti-piece:nth-child(1) {
   left: 7%;
   -webkit-transform: rotate(-40deg);
-  transform: rotate(-40deg);
+          transform: rotate(-40deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 182ms;
-  animation-delay: 182ms;
+          animation-delay: 182ms;
   -webkit-animation-duration: 1116ms;
-  animation-duration: 1116ms;
+          animation-duration: 1116ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(2) {
   left: 14%;
   -webkit-transform: rotate(4deg);
-  transform: rotate(4deg);
+          transform: rotate(4deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 161ms;
-  animation-delay: 161ms;
+          animation-delay: 161ms;
   -webkit-animation-duration: 1076ms;
-  animation-duration: 1076ms;
+          animation-duration: 1076ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(3) {
   left: 21%;
   -webkit-transform: rotate(-51deg);
-  transform: rotate(-51deg);
+          transform: rotate(-51deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 481ms;
-  animation-delay: 481ms;
+          animation-delay: 481ms;
   -webkit-animation-duration: 1103ms;
-  animation-duration: 1103ms;
+          animation-duration: 1103ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(4) {
   left: 28%;
   -webkit-transform: rotate(61deg);
-  transform: rotate(61deg);
+          transform: rotate(61deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 334ms;
-  animation-delay: 334ms;
+          animation-delay: 334ms;
   -webkit-animation-duration: 708ms;
-  animation-duration: 708ms;
+          animation-duration: 708ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(5) {
   left: 35%;
   -webkit-transform: rotate(-52deg);
-  transform: rotate(-52deg);
+          transform: rotate(-52deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 302ms;
-  animation-delay: 302ms;
+          animation-delay: 302ms;
   -webkit-animation-duration: 776ms;
-  animation-duration: 776ms;
+          animation-duration: 776ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(6) {
   left: 42%;
   -webkit-transform: rotate(38deg);
-  transform: rotate(38deg);
+          transform: rotate(38deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 180ms;
-  animation-delay: 180ms;
+          animation-delay: 180ms;
   -webkit-animation-duration: 1168ms;
-  animation-duration: 1168ms;
+          animation-duration: 1168ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(7) {
   left: 49%;
   -webkit-transform: rotate(11deg);
-  transform: rotate(11deg);
+          transform: rotate(11deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 395ms;
-  animation-delay: 395ms;
+          animation-delay: 395ms;
   -webkit-animation-duration: 1200ms;
-  animation-duration: 1200ms;
+          animation-duration: 1200ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(8) {
   left: 56%;
   -webkit-transform: rotate(49deg);
-  transform: rotate(49deg);
+          transform: rotate(49deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 14ms;
-  animation-delay: 14ms;
+          animation-delay: 14ms;
   -webkit-animation-duration: 887ms;
-  animation-duration: 887ms;
+          animation-duration: 887ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(9) {
   left: 63%;
   -webkit-transform: rotate(-72deg);
-  transform: rotate(-72deg);
+          transform: rotate(-72deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 149ms;
-  animation-delay: 149ms;
+          animation-delay: 149ms;
   -webkit-animation-duration: 805ms;
-  animation-duration: 805ms;
+          animation-duration: 805ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(10) {
   left: 70%;
   -webkit-transform: rotate(10deg);
-  transform: rotate(10deg);
+          transform: rotate(10deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 351ms;
-  animation-delay: 351ms;
+          animation-delay: 351ms;
   -webkit-animation-duration: 1059ms;
-  animation-duration: 1059ms;
+          animation-duration: 1059ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(11) {
   left: 77%;
   -webkit-transform: rotate(4deg);
-  transform: rotate(4deg);
+          transform: rotate(4deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 307ms;
-  animation-delay: 307ms;
+          animation-delay: 307ms;
   -webkit-animation-duration: 1132ms;
-  animation-duration: 1132ms;
+          animation-duration: 1132ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(12) {
   left: 84%;
   -webkit-transform: rotate(42deg);
-  transform: rotate(42deg);
+          transform: rotate(42deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 464ms;
-  animation-delay: 464ms;
+          animation-delay: 464ms;
   -webkit-animation-duration: 776ms;
-  animation-duration: 776ms;
+          animation-duration: 776ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(13) {
   left: 91%;
   -webkit-transform: rotate(-72deg);
-  transform: rotate(-72deg);
+          transform: rotate(-72deg);
   -webkit-animation: makeItRain 1000ms infinite ease-out;
-  animation: makeItRain 1000ms infinite ease-out;
+          animation: makeItRain 1000ms infinite ease-out;
   -webkit-animation-delay: 429ms;
-  animation-delay: 429ms;
+          animation-delay: 429ms;
   -webkit-animation-duration: 818ms;
-  animation-duration: 818ms;
+          animation-duration: 818ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(odd) {
@@ -581,16 +573,16 @@ body {
   width: 5px;
   height: 12px;
   -webkit-animation-duration: 2000ms;
-  animation-duration: 2000ms;
+          animation-duration: 2000ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(3n) {
   width: 3px;
   height: 10px;
   -webkit-animation-duration: 2500ms;
-  animation-duration: 2500ms;
+          animation-duration: 2500ms;
   -webkit-animation-delay: 1000ms;
-  animation-delay: 1000ms;
+          animation-delay: 1000ms;
 }
 
 .payment-container .payment-modal .confetti-piece:nth-child(4n-7) {
@@ -599,7 +591,7 @@ body {
 
 .rem-modal {
   -webkit-animation: 0.3s rem_modal forwards ease-in-out;
-  animation: 0.3s rem_modal forwards ease-in-out;
+          animation: 0.3s rem_modal forwards ease-in-out;
 }
 
 @-webkit-keyframes makeItRain {
@@ -611,7 +603,7 @@ body {
   }
   to {
     -webkit-transform: translateY(350px);
-    transform: translateY(350px);
+            transform: translateY(350px);
   }
 }
 
@@ -624,7 +616,7 @@ body {
   }
   to {
     -webkit-transform: translateY(350px);
-    transform: translateY(350px);
+            transform: translateY(350px);
   }
 }
 
@@ -632,12 +624,12 @@ body {
   0% {
     opacity: 0;
     -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+            transform: scale(1.2);
   }
   100% {
     opacity: 1;
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
   }
 }
 
@@ -645,12 +637,64 @@ body {
   0% {
     opacity: 0;
     -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+            transform: scale(1.2);
   }
   100% {
     opacity: 1;
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes scale_modal2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+
+@keyframes scale_modal2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+
+@-webkit-keyframes scale_modal3 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
+  }
+}
+
+@keyframes scale_modal3 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
   }
 }
 
@@ -658,12 +702,12 @@ body {
   0% {
     opacity: 1;
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
   }
   100% {
     opacity: 0;
     -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+            transform: scale(1.2);
   }
 }
 
@@ -671,12 +715,12 @@ body {
   0% {
     opacity: 1;
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
   }
   100% {
     opacity: 0;
     -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+            transform: scale(1.2);
   }
 }
 
@@ -684,12 +728,12 @@ body {
   0% {
     opacity: 0;
     -webkit-transform: rotate(90deg) scale(1.2);
-    transform: rotate(90deg) scale(1.2);
+            transform: rotate(90deg) scale(1.2);
   }
   100% {
     opacity: 1;
     -webkit-transform: rotate(90deg) scale(1);
-    transform: rotate(90deg) scale(1);
+            transform: rotate(90deg) scale(1);
   }
 }
 
@@ -697,34 +741,34 @@ body {
   0% {
     opacity: 0;
     -webkit-transform: rotate(90deg) scale(1.2);
-    transform: rotate(90deg) scale(1.2);
+            transform: rotate(90deg) scale(1.2);
   }
   100% {
     opacity: 1;
     -webkit-transform: rotate(90deg) scale(1);
-    transform: rotate(90deg) scale(1);
+            transform: rotate(90deg) scale(1);
   }
 }
 
 @-webkit-keyframes wave {
   from {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   from {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
 @keyframes wave {
   from {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   from {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
@@ -732,12 +776,12 @@ body {
   0% {
     opacity: 0;
     -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+            transform: scale(1.2);
   }
   100% {
     opacity: 1;
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
   }
 }
 
@@ -745,34 +789,38 @@ body {
   0% {
     opacity: 0;
     -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+            transform: scale(1.2);
   }
   100% {
     opacity: 1;
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
   }
 }
 
 @-webkit-keyframes move {
   0% {
     opacity: 0;
-    bottom: -100%;
+    -webkit-transform: translateY(300%);
+            transform: translateY(300%);
   }
   100% {
     opacity: 1;
-    bottom: 3%;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
   }
 }
 
 @keyframes move {
   0% {
     opacity: 0;
-    bottom: -100%;
+    -webkit-transform: translateY(300%);
+            transform: translateY(300%);
   }
   100% {
     opacity: 1;
-    bottom: 3%;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
   }
 }
 
@@ -810,11 +858,11 @@ body {
   0%,
   100% {
     -webkit-transform: none;
-    transform: none;
+            transform: none;
   }
   50% {
     -webkit-transform: scale3d(1.1, 1.1, 1);
-    transform: scale3d(1.1, 1.1, 1);
+            transform: scale3d(1.1, 1.1, 1);
   }
 }
 
@@ -822,46 +870,50 @@ body {
   0%,
   100% {
     -webkit-transform: none;
-    transform: none;
+            transform: none;
   }
   50% {
     -webkit-transform: scale3d(1.1, 1.1, 1);
-    transform: scale3d(1.1, 1.1, 1);
+            transform: scale3d(1.1, 1.1, 1);
   }
 }
 
 @-webkit-keyframes fill {
   100% {
     -webkit-box-shadow: inset 0px 0px 0px 30px #7ac142;
-    box-shadow: inset 0px 0px 0px 30px #7ac142;
+            box-shadow: inset 0px 0px 0px 30px #7ac142;
   }
 }
 
 @keyframes fill {
   100% {
     -webkit-box-shadow: inset 0px 0px 0px 30px #7ac142;
-    box-shadow: inset 0px 0px 0px 30px #7ac142;
+            box-shadow: inset 0px 0px 0px 30px #7ac142;
   }
 }
 
 @media only screen and (max-width: 780px) {
   .payment-container .payment-modal {
-    height: 700px;
-    width: 80%;
+    height: 250px;
+    width: 500px;
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 550px) {
   .payment-container .payment-modal {
-    height: 80%;
-    width: 80%;
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+    -webkit-animation: 0.3s scale_modal2 alternate ease-in-out;
+            animation: 0.3s scale_modal2 alternate ease-in-out;
   }
 }
 
-@media only screen and (max-width: 330px) {
+@media only screen and (max-width: 370px) {
   .payment-container .payment-modal {
-    height: 85%;
-    width: 80%;
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
+    -webkit-animation: 0.3s scale_modal3 alternate ease-in-out;
+            animation: 0.3s scale_modal3 alternate ease-in-out;
   }
 }
 /*# sourceMappingURL=style.css.map */
