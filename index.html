@@ -8,9 +8,6 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- Dummy launch success payment(OPTIONAL) -->
-    <button class="payment-launch">Launch payment successful</button>
-
     <div class="payment-container rem-modal">
       <!-- Success Modal -->
       <div class="payment-modal">
@@ -69,7 +66,7 @@
             </div>
 
             <!-- User Display Picture -->
-            <img src="/pig.svg" width="350" alt="avatar" />
+            <img class="user-avatar" alt="avatar" />
           </div>
 
           <div class="flex-content">
@@ -80,14 +77,14 @@
               <!--User Review -->
               <div class="payment-wallet">
                 <!-- User Review Test -->
-                <p class="payment-address">
-                  This is a message from your viewer, nice stream - good work!!!
-                </p>
+                <p class="payment-address"></p>
               </div>
             </div>
 
             <!-- Nim Received -->
-            <div class="payment-received"><h3>1000 Nim Received</h3></div>
+            <div class="payment-received">
+              <h3><span class="payment-value">1000</span> Nim Received</h3>
+            </div>
           </div>
         </div>
         <img class="wave" src="/wave.svg" />
