@@ -902,4 +902,11 @@
             animation: 0.3s scale_modal3 alternate ease-in-out;
   }
 }
+
+@media only screen and (max-width: 320px) {
+  .payment-container .payment-modal .flex-container .flex-content .payment-received {
+    width: 85%;
+    padding: 8px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
