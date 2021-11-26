@@ -68,6 +68,21 @@ function successModal(img, msg, value, seconds) {
     msg_input.textContent = msg;
     received_val.textContent = value;
 
+    console.log(msg.split(" "));
+
+    console.log(msg.split(" ").length);
+
+    if (msg.split(" ").length > 20) {
+      msg_input.style.fontSize = "14px";
+      msg_input.style.lineHeight = "20px";
+    }
+
+    if (msg.split(" ").length > 30) {
+      msg_input.style.fontSize = "12px";
+      msg_input.style.lineHeight = "20px";
+      msg_input.style.width = "90%";
+    }
+
     if (container) {
       setTimeout(() => {
         container.classList.add("rem-modal");
@@ -84,7 +99,7 @@ function successModal(img, msg, value, seconds) {
 // Calls the function to trigger the modal
 successModal(
   "/pig.svg",
-  "This is a message from your viewer, nice stream - good work!!!",
+  "This is a message from your viewer, ij kajfkljdij kajfkljdij kajfkljdij kajfkljdij kajfkljdij addfer feee ferer ahkadkf klj dklfjeioer ioa a fklj ekrjirej klj adkl stream - good work!!!",
   1000,
   5
 );
